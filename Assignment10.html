@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <title>Assignment 9</title>
+</head>
+<style>
+    .box{
+        margin: 10px;
+        padding: 20px;
+        background: blueviolet;
+        border-radius: 10px;
+    }
+    p{
+        margin: 5px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+</style>
+<body>
+<div id="multiDimensionalArray0" class="box"></div>
+<div id="multiDimensionalArray" class="box"></div>
+<div id="printNumber" class="box"></div>
+<div id="printTable" class="box">
+    <label for="table">Table Number</label><input type="text" id="table">
+    <br>
+    <br>
+    <label for="times"> Table Length </label><input type="text" id="times">
+    <br>
+    <br>
+    <button onclick="printTable()">Enter</button>
+</div>
+<div id="fruit" class="box"></div>
+<div id="series" class="box"></div>
+<div id="bakery" class="box">
+    <label>
+        Welcome to ABC Bakery.What do you want to order sir/ma'am
+        <br>
+        <br>
+        <input type="text" style="display: block" id="product">
+    </label>
+    <br>
+    <button onclick="checkItem()">Order</button>
+</div>
+<div id="largestNumber" class="box"></div>
+<div id="smallestNumber" class="box"></div>
+<div id="multipleOf5" class="box"></div>
+<div id="concat" class="box">
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" placeholder="Enter your first name">
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" placeholder="Enter your last name">
+    <button onclick="greetButton()">Enter</button>
+</div>
+<div id="stringLength" class="box">
+    <label for="phoneModel">Enter your favorite mobile phone model:</label>
+    <input type="text" id="phoneModel" placeholder="E.g., iPhone 12 Pro Max">
+    <button onclick="submitButton()">Submit</button>
+</div>
+<div id="findIndex" class="box">
+    <p>String:"Pakistani"</p>
+    <button onclick="findIndexOfN()">Find Index of 'n'</button>
+</div>
+<div id="findLastIndex" class="box">
+    <p>String:"Hello World"</p>
+    <button onclick="findLastIndexOfL()">Find Last Index of 'l'</button>
+    <p id="result"></p>
+</div>
+<div id="charAt" class="box">
+    <p>String:"Pakistani"</p>
+    <button id="findButton" onclick="findCharacterAtThirdIndex()">Find Character at 3rd Index</button>
+    <p id="result1"></p>
+</div>
+<div id="concatMethod" class="box">
+    <label for="firstName">
+        First Name:
+        <input type="text" id="firstName1" placeholder="Enter your first name">
+    </label>
+    <label for="lastName">
+        Last Name:
+        <input type="text" id="lastName1" placeholder="Enter your last name">
+    </label>
+    <button onclick="concatMethod()">Enter</button>
+</div>
+<div id="replace" class="box">
+    <p>City:"Hyderabad"</p>
+    <button id="replaceButton" onclick="replace()">Replace "Hyder" with "Islam"</button>
+    <p id="result2"></p>
+</div>
+<div id="replaceAll" class="box">
+    <p>The original message is</p>
+    <p id="originalMessage">Ali and Sami are best friends. They play cricket and football together.</p>
+    <button id="replaceButton1" onclick="replaceAll()">Replace "and" with "&"</button>
+    <p>The modified message is</p>
+    <p id="result3"></p>
+</div>
+<div id="convertToNumberAString" class="box">
+    <p>Value:472</p>
+    <p>Type:String</p>
+    <button id="convertButton" onclick="convertToNumber()">Convert to Number</button>
+    <p>Value:<span id="resultValue"></span></p>
+    <p>Type:<span id="resultType"></span></p>
+</div>
+<div id="toUpperCase" class="box">
+    <label for="userInput">Enter some text:</label>
+    <input type="text" id="userInput" placeholder="Type your text here">
+    <button id="convertButton1" onclick="convertToCapitalLetters()">Convert to Capital Letters</button>
+    <p>The converted text is: <span id="result4"></span></p>
+
+</div>
+<div id="convertToTitleCase" class="box">
+    <label for="userInput">
+        Enter some text
+        <input type="text" id="userInput1" placeholder="Type your text here">
+    </label>
+    <button onclick="convertToTitleCase()">Convert to Title Case</button>
+    <p>The converted text is: <span id="result5"></span></p>
+</div>
+<div id="numToStr" class="box">
+    <p>Original Number: <span id="originalNumber">35.36</span></p>
+    <button onclick="convertAndDisplay()">Convert</button>
+    <p>Result: <span id="result6"></span></p>
+</div>
+<div id="asciiCode" class="box">
+    <label for="usernameInput">Enter your username:</label>
+    <input type="text" id="usernameInput">
+    <button onclick="validateUsername()">Submit</button>
+    <p id="validationResult"></p>
+</div>
+<div id="validPass" class="box">
+    <label for="usernameInput">
+        Enter your password:
+        <input type="text" id="usernameInput11">
+    </label>
+    <button onclick="validPassword()">Submit</button>
+    <p id="validationResult1"></p>
+</div>
+<div id="stringToArray" class="box">
+    <p>University Of Karachi</p>
+    <br>
+    <button onclick="strToArr()">Convert String to Array</button>
+    <p id="result7"></p>
+</div>
+<div class="box">
+    <p >User Input:Pakistan</p>
+    <button onclick="lastIndexOfUserInput()">Find Last Element</button>
+    <p id="lastIndex"></p>
+</div>
+<div class="box">
+    <p>The quick brown fox jumps over the lazy dog</p>
+    <button onclick="findOccurrenceOfThe()">Find Occurrence Of 'The'</button>
+    <p id="findOccurrenceOfThe"></p>
+</div>
+<script>
+    let arr1 = [[[],[]],[[],[]],[[],[]]]; //3D array
+    let arrMultiDimensional = document.createElement('p');
+    arrMultiDimensional.innerHTML = arr1+'';
+    arrMultiDimensional.style.display = 'inline';
+    document.getElementById('multiDimensionalArray0').appendChild(arrMultiDimensional);
+    let arr2 = [[0, 1, 2, 3], [1, 0, 1, 2], [2, 1, 0, 1]];
+    for (let i = 0; i < arr2.length; i++) {
+        for (let j = 0; j < arr2[i].length; j++) {
+            let p = document.createElement('p');
+            p.textContent = arr2[i][j]+' ';
+            p.style.display = 'inline';
+            document.getElementById('multiDimensionalArray').appendChild(p);
+        }
+        let br = document.createElement('br');
+        document.getElementById('multiDimensionalArray').appendChild(br);
+    }
+    for (let i = 1; i <= 10; i++) {
+        let p = document.createElement('p');
+        p.textContent = i+' ';
+        document.getElementById('printNumber').appendChild(p);
+    }
+    function printTable(){
+        let tableNumber = document.getElementById('table').value;
+        let times = document.getElementById('times').value;
+        let tableHead = document.createElement('p');
+        tableHead.innerHTML = 'Multiplication table of '+tableNumber+' Length '+times;
+        document.getElementById('printTable').appendChild(tableHead);
+        for (let i = 1; i <= times ; i++) {
+            table = document.createElement('p');
+            table.innerHTML = tableNumber+' x '+i+' = '+tableNumber*i;
+            document.getElementById('printTable').appendChild(table);
+        }
+    }
+    let fruits = ['apple', 'banana', 'mango', 'orange', 'strawberry'];
+    for (let i = 0; i < fruits.length; i++) {
+        let p = document.createElement('p');
+        p.textContent = fruits[i]+' ';
+        document.getElementById('fruit').appendChild(p);
+    }
+    let br = document.createElement('br');
+    document.getElementById('fruit').appendChild(br);
+    for (let i = 0; i < fruits.length; i++) {
+        let p = document.createElement('p');
+        p.textContent = 'Element at Index '+i+' is '+fruits[i];
+        document.getElementById('fruit').appendChild(p);
+    }
+    let counting = document.createElement('h2');
+    counting.innerHTML = 'Counting';
+    document.getElementById('series').appendChild(counting);
+    for(let i=1; i<= 15; i++){
+        let p = document.createElement('p');
+        p.innerHTML = i+',';
+        p.style.display = 'inline';
+        document.getElementById('series').appendChild(p);
+    }
+    let reverseCounting = document.createElement('h2');
+    reverseCounting.innerHTML = 'Reverse Counting';
+    document.getElementById('series').appendChild(reverseCounting);
+    for(let i=10; i>=1; i--){
+        let p = document.createElement('p');
+        p.innerHTML = i+',';
+        p.style.display = 'inline';
+        document.getElementById('series').appendChild(p);
+    }
+    let even = document.createElement('h2');
+    even.innerHTML = 'Even';
+    document.getElementById('series').appendChild(even);
+    for(let i=0; i<= 20; i++){
+        if(i%2===0) {
+            let p = document.createElement('p');
+            p.innerHTML = i + ',';
+            p.style.display = 'inline';
+            document.getElementById('series').appendChild(p);
+        }
+    }
+    let odd = document.createElement('h2');
+    odd.innerHTML = 'Odd';
+    document.getElementById('series').appendChild(odd);
+    for(let i=0; i<= 20; i++){
+        if(i%2!==0) {
+            let p = document.createElement('p');
+            p.innerHTML = i + ',';
+            p.style.display = 'inline';
+            document.getElementById('series').appendChild(p);
+        }
+    }
+    let series = document.createElement('h2');
+    series.innerHTML = 'Series';
+    document.getElementById('series').appendChild(series);
+    for(let i=2; i<= 20; i++){
+        if(i%2===0) {
+            let p = document.createElement('p');
+            p.innerHTML = i + 'k,';
+            p.style.display = 'inline';
+            document.getElementById('series').appendChild(p);
+        }
+    }
+    function checkItem(){
+        let items = ['cake', 'apple pie', 'cookie', 'chips', 'patties'];
+        let con = false;
+        let item = document.getElementById('product').value;
+        for(let i=0; i<items.length; i++){
+            if(items[i] === item.toLowerCase()){
+                let result = document.createElement('p');
+                result.innerHTML = 'Cookie is <strong>available</strong> at index '+i+' in our bakery';
+                document.getElementById('bakery').appendChild(result);
+                con = true;
+            }
+        }
+        if(con === false){
+            let result = document.createElement('p');
+            result.innerHTML = 'We are sorry.'+item+' is <strong>not available</strong> in our bakery';
+            document.getElementById('bakery').appendChild(result);
+        }
+    }
+    let A = [24, 53, 78, 91, 12];
+    let largest = A[0];
+    let p = document.createElement('p');
+    p.innerHTML = 'Array Items';
+    document.getElementById('largestNumber').appendChild(p);
+    for(let i=0; i<A.length; i++) {
+        let Num = document.createElement('p')
+        Num.innerHTML = A[i] + ',';
+        Num.style.display = 'inline';
+        document.getElementById('largestNumber').appendChild(Num);
+    }
+    for (let i = 0; i < A.length; i++) {
+        if (A[i] < A[i + 1]) {
+            largest = A[i + 1];
+        }
+    }
+    let printLargeNumber = document.createElement('p');
+    printLargeNumber.innerHTML = 'Array Largest Number is '+largest;
+    document.getElementById('largestNumber').appendChild(printLargeNumber);
+    let smallest = A[0];
+    p = document.createElement('p');
+    p.innerHTML = 'Array Items';
+    document.getElementById('smallestNumber').appendChild(p);
+    for(let i=0; i<A.length; i++) {
+        let Num = document.createElement('p')
+        Num.innerHTML = A[i] + ',';
+        Num.style.display = 'inline';
+        document.getElementById('smallestNumber').appendChild(Num);
+    }
+    for (let i = 0; i < A.length; i++) {
+        if (A[i] > A[i + 1]) {
+            smallest = A[i + 1];
+        }
+    }
+    let printSmallestNumber = document.createElement('p');
+    printSmallestNumber.innerHTML = 'Array Smallest Number is '+smallest;
+    document.getElementById('smallestNumber').appendChild(printSmallestNumber);
+    let mulOf5Head = document.createElement('h2'),num = 5,hundred = 100;
+    mulOf5Head.innerHTML = 'Multiple of '+num+' till '+hundred;
+    document.getElementById('multipleOf5').appendChild(mulOf5Head);
+    for(let i=1; i<=hundred; i++){
+        if(i%5===0) {
+            let mulOf5 = document.createElement('p');
+            mulOf5.innerHTML = i+',';
+            mulOf5.style.display = 'inline';
+            document.getElementById('multipleOf5').appendChild(mulOf5);
+        }
+    }
+    function greetButton(){
+        let  firstNameInput = document.getElementById('firstName').value;
+        let  lastNameInput = document.getElementById('lastName').value;
+        let greet =  document.createElement('p');
+        greet.innerHTML = 'Hello, '+(firstNameInput+' '+lastNameInput);
+        document.getElementById('concat').appendChild(greet);
+    }
+    function submitButton(){
+        let phoneModelInput = document.getElementById('phoneModel').value;
+        let inputLength = phoneModelInput.length;
+        let favPhone = document.createElement('p');
+        favPhone.innerHTML = 'My Favorite Phone is:'+phoneModelInput;
+        document.getElementById('stringLength').appendChild(favPhone);
+        let result = document.createElement('p');
+        result.innerHTML = 'Length of string:'+inputLength;
+        document.getElementById('stringLength').appendChild(result);
+    }
+    function findIndexOfN(){
+        let word = 'Pakistani';
+        let alphabet = 'n';
+        let index = word.indexOf(alphabet);
+        let resultParagraph = document.createElement('p');
+        resultParagraph.innerHTML = `Index of '`+alphabet+`':`+index;
+        document.getElementById('findIndex').appendChild(resultParagraph);
+    }
+    function findLastIndexOfL(){
+        let word = 'Hello World';
+        let alphabet = 'l'
+        let lastIndex = word.lastIndexOf(alphabet);
+        let resultParagraph = document.getElementById('result');
+        resultParagraph.innerHTML = `Last index of '`+alphabet+`':`+lastIndex;
+    }
+    function findCharacterAtThirdIndex() {
+        let word = 'Pakistani';
+        let character = word.charAt(3);
+        let resultParagraph = document.getElementById('result1');
+        resultParagraph.textContent = 'Character at index '+3+':'+character;
+    }
+    function concatMethod(){
+        let  firstNameInput = document.getElementById('firstName1').value;
+        let  lastNameInput = document.getElementById('lastName1').value;
+        let greet =  document.createElement('p');
+        greet.innerHTML = 'Hello, '+firstNameInput.concat(' '+lastNameInput);
+        document.getElementById('concatMethod').appendChild(greet);
+    }
+    function replace() {
+        let originalWord = 'Hyderabad';
+        let replacedWord = originalWord.replace('Hyder', 'Islam');
+        let resultParagraph = document.getElementById('result2');
+        resultParagraph.innerHTML = 'After replacement:'+replacedWord;
+    }
+    function replaceAll() {
+        let originalMessage = 'Ali and Sami are best friends. They play cricket and football together.';
+        let modifiedMessage = originalMessage.replaceAll('and', '&');
+        let resultParagraph = document.getElementById('result3');
+        resultParagraph.innerHTML = modifiedMessage;
+    }
+    function convertToNumber() {
+        let originalString = '472';
+        let convertedNumber = parseInt(originalString);
+        let resultValueSpan = document.getElementById('resultValue');
+        let resultTypeSpan = document.getElementById('resultType');
+        resultValueSpan.innerHTML = ''+convertedNumber;
+        resultTypeSpan.innerHTML = typeof convertedNumber;
+    }
+    function convertToCapitalLetters() {
+        let userInput = document.getElementById('userInput').value;
+        let convertedText = userInput.toUpperCase();
+        let resultSpan = document.getElementById('result4');
+        resultSpan.innerHTML = convertedText;
+    }
+    function convertToTitleCase() {
+        let userInput = document.getElementById("userInput1").value;
+        let word = userInput.toLowerCase();
+        let titleChar = word.charAt(0).toUpperCase();
+        let convertedText = titleChar.concat(word.slice(1));
+        let resultSpan = document.getElementById("result5");
+        resultSpan.innerHTML = convertedText;
+    }
+    function convertAndDisplay() {
+        let num = 35.36;
+        let numAsString = num.toString();
+        document.getElementById('result6').innerHTML = numAsString.replace('.', '');
+    }
+    function validateUsername() {
+        let username = document.getElementById('usernameInput').value;
+        let isValid = true;
+        for (let i = 0; i < username.length; i++) {
+            let charCode = username.charCodeAt(i);
+            if (charCode === 33 || charCode === 44 || charCode === 46 || charCode === 64) {
+                isValid = false;
+                break;
+            }
+        }
+        if (!isValid) {
+            document.getElementById('validationResult').textContent = 'Please enter a valid username without special symbols [@, ., , !].';
+        } else {
+            document.getElementById('validationResult').textContent = 'Username is valid:'+username;
+        }
+    }
+    function validPassword() {
+        let pass = document.getElementById('usernameInput11').value,con = false;
+        if (pass.length >= 6) {
+            if (/^[0-9]/.test(pass)) {
+                document.getElementById('validationResult1').innerHTML = 'Password can\'t begin with a number<br>Please enter a valid Password';
+            } else {
+                for (let i = 0; i < pass.length; i++) {
+                    if (/[a-zA-Z0-9]/.test(pass.charAt(i))) {
+                        con = true;
+                    }
+                }
+                if (con) {
+                    document.getElementById('validationResult1').innerHTML = 'Valid Password';
+                } else {
+                    document.getElementById('validationResult1').innerHTML = 'Not a Valid Password';
+                }
+            }
+        } else {
+            document.getElementById('validationResult1').innerHTML = 'Password must contain 6 or more characters';
+        }
+    }
+    function strToArr(){
+        let str = 'University Of Karachi';
+        let str1 = str.split('');
+        for(let i=0; i<str1.length; i++){
+            let p = document.createElement('p');
+            p.innerHTML = str1[i];
+            document.getElementById('result7').appendChild(p);
+        }
+    }
+    function lastIndexOfUserInput(){
+        let n = 'Pakistan';
+        let lastElement = n.charAt(n.length-1);
+        document.getElementById('lastIndex').innerHTML = 'Last character of input:'+lastElement;
+    }
+    function findOccurrenceOfThe(){
+        let sentence = 'The quick brown fox jumps over the lazy dog';
+        let str = sentence.toLowerCase();
+        let count = str.match(/the/g).length;
+        document.getElementById('findOccurrenceOfThe').innerHTML = 'There are '+count+' occurrence(s) of word `the`';
+    }
+</script>
+</body>
+</html>
